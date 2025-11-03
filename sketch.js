@@ -3,7 +3,6 @@ let timestamps1 = [], zPos1 = [];
 let timestamps2 = [], zPos2 = [];
 let timestamps3 = [], zPos3 = [];
 
-
 function preload() {
   table1 = loadTable('dataset/drone_alfa_data.csv', 'csv', 'header');
   table2 = loadTable('dataset/drone_bravo_data.csv', 'csv', 'header');
@@ -11,18 +10,18 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1200, 1500);
+  createCanvas(1200, 1800);
   background("#efefef");
 
   // Titolo fuori dal canvas (HTML)
   let infoTitle = createDiv('MOVIMENTO DRONI');
-  infoTitle.style('font-size', '200px');
+  infoTitle.style('font-size', '180px');
   infoTitle.style('font-weight', 'bold');
   infoTitle.style('font-family', 'Helvetica, sans-serif');
-  infoTitle.style('color', '#3a3a3a');
+  infoTitle.style('color', '#2a2a2aff');
   infoTitle.style('position', 'absolute');
-  infoTitle.style('right', '-700px');
-  infoTitle.style('top', '110%');
+  infoTitle.style('right', '-650px');
+  infoTitle.style('top', '100%');
   infoTitle.style('transform', 'rotate(90deg) translateY(-50%)');
   infoTitle.style('transform-origin', 'center');
   infoTitle.style('text-align', 'center');
@@ -48,11 +47,12 @@ function setup() {
   }
 
   // Disegna i tre grafici
-  drawScatterPlot(timestamps1, zPos1, 'MOVIMENTO DRONE ALPHA', 70);
-  drawScatterPlot(timestamps2, zPos2, 'MOVIMENTO DRONE BRAVO', 500);
-  drawScatterPlot(timestamps3, zPos3, 'MOVIMENTO DRONE CHARLIE', 1000);
+  drawScatterPlot(timestamps1, zPos1, 'DRONE ALPHA', 70);
+  drawScatterPlot(timestamps2, zPos2, 'DRONE BRAVO', 600);
+  drawScatterPlot(timestamps3, zPos3, 'DRONE CHARLIE', 1200);
 
   noLoop();
+
 }
 
 function drawScatterPlot(timestamps, zPos, title, offsetY) {
@@ -116,11 +116,11 @@ function drawScatterPlot(timestamps, zPos, title, offsetY) {
     
     // Usa fill e stroke per rendere i punti visibili
     if (val >= 0) {
-      fill("#7e7d7d");
-      stroke("#7e7d7d");
+      fill("#929292ff");
+      stroke("#929292ff");
     } else {
-      fill("#444");
-      stroke("#444");
+      fill("#383838ff");
+      stroke("#383838ff");
     }
     strokeWeight(0);
     circle(x, y, 2);
@@ -181,3 +181,4 @@ function drawScatterPlot(timestamps, zPos, title, offsetY) {
   fill(20);
   text(title, marginLeft, marginTop - 25);
 }
+
